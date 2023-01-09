@@ -25,4 +25,16 @@ export class HeroesService {
   getSugerencias( termino: string): Observable<HeroeResponse[]>{
     return this.http.get<HeroeResponse[]>(`${ this.baseUrl }/heroes?q=${ termino}&_limit=6`);
   }
+
+  agregarHeore( heroe: HeroeResponse): Observable<HeroeResponse>{
+    return this.http.post<HeroeResponse>(`${ this.baseUrl }/heroes`, heroe );
+  }
+
+  actualizarHeore( heroe: HeroeResponse): Observable<HeroeResponse>{
+    return this.http.put<HeroeResponse>(`${ this.baseUrl }/heroes/${ heroe.id }`, heroe );
+  }
+
+  eliminarHeore( id: string ): Observable<any>{
+    return this.http.delete<any>(`${ this.baseUrl }/heroes/${ id }` );
+  }
 }
