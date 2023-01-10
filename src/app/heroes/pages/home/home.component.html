@@ -2,7 +2,9 @@
   <mat-sidenav #sidenav mode="push">
     <mat-toolbar color="primary">
       <span>Menú</span>
+
       <span class="spacer"></span>
+     
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
 
@@ -29,7 +31,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span class="spacer"></span>
-    <button mat-button>
+
+    <span>***{{ auth.usuario }}</span>
+    
+    <button mat-button (click)="logout()">
       Logout
     </button>
   </mat-toolbar>
